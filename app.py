@@ -3,7 +3,7 @@ import os
 # Variáveis globais do projeto:
 
 
-restaurante = []
+restaurantes = ["Laçador", "Pedra Chata"]
 
 
 def sair():
@@ -11,10 +11,14 @@ def sair():
     print("Finalizando aplicação.\n")
 
 
-def opcao_invalida():
-    print("Opção Inválida\n")
+def voltar():
     input("Digite qualquer tecla para retornar ao menu principal: ")
     main()
+
+
+def opcao_invalida():
+    print("Opção Inválida\n")
+    voltar()
 
 
 def chama_nome_app():
@@ -33,10 +37,17 @@ def exibir_opcoes():
 def cadastrar_novo_restaurante():
     os.system("cls")
     nome_do_restaurante = input("Digite o nome do seu novo restaurante: \n")
-    restaurante.append(nome_do_restaurante)
+    restaurantes.append(nome_do_restaurante)
     print(f"O restaurante: {nome_do_restaurante} foi cadastrado com sucesso!")
-    input("Digite qualquer tecla para retornar ao menu principal:")
-    main()
+    voltar()
+
+
+def listar_restaurantes():
+    os.system("cls")
+    print("Listando os restaurantes\n")
+    for restaurante in restaurantes:
+        print(f"- {restaurante}")
+    voltar()
 # Escolha das opções:
 
 
@@ -50,6 +61,7 @@ def escolha_opcoes():
                 cadastrar_novo_restaurante()
             case 2:
                 print("Você escolheu listar seu restaurante.")
+                listar_restaurantes()
             case 3:
                 print("Você escolheu ativar seu restaurante.")
             case 4:
