@@ -63,10 +63,8 @@ def escolha_opcoes():
         print("\nVocê escolheu a opção:", opcao_digitada)
         match opcao_digitada:
             case 1:
-                print("Você escolheu cadastrar seu restaurante.")
                 cadastrar_novo_restaurante()
             case 2:
-                print("Você escolheu listar seu restaurante.")
                 listar_restaurantes()
             case 3:
                 print("Você escolheu ativar seu restaurante.")
