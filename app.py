@@ -6,9 +6,15 @@ import os
 restaurantes = ["Laçador", "Pedra Chata"]
 
 
+def mostrar_subtitulo(t):
+    os.system("cls")
+    print(t)
+    print()
+
+
 def sair():
     os.system("cls")
-    print("Finalizando aplicação.\n")
+    mostrar_subtitulo("Finalizando aplicação.\n")
 
 
 def voltar_menu():
@@ -44,7 +50,7 @@ def cadastrar_novo_restaurante():
 
 def listar_restaurantes():
     os.system("cls")
-    print("Listando os restaurantes\n")
+    mostrar_subtitulo("Listando os restaurantes")
     for restaurante in restaurantes:
         print(f"- {restaurante}")
     voltar_menu()
