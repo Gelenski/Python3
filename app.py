@@ -17,14 +17,14 @@ def sair():
     mostrar_subtitulo("Finalizando aplicação.\n")
 
 
-def voltar_menu():
+def voltar_menu_principal():
     input("\nDigite qualquer tecla para retornar ao menu principal: ")
     main()
 
 
 def opcao_invalida():
     print("Opção Inválida\n")
-    voltar_menu()
+    voltar_menu_principal()
 
 
 def chama_nome_app():
@@ -45,7 +45,7 @@ def cadastrar_novo_restaurante():
     nome_do_restaurante = input("Digite o nome do seu novo restaurante: \n")
     restaurantes.append(nome_do_restaurante)
     print(f"O restaurante: {nome_do_restaurante} foi cadastrado com sucesso!")
-    voltar_menu()
+    voltar_menu_principal()
 
 
 def listar_restaurantes():
@@ -53,7 +53,7 @@ def listar_restaurantes():
     mostrar_subtitulo("Listando os restaurantes")
     for restaurante in restaurantes:
         print(f"- {restaurante}")
-    voltar_menu()
+    voltar_menu_principal()
 # Escolha das opções:
 
 
