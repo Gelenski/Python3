@@ -3,7 +3,15 @@ import os
 # Variáveis globais do projeto:
 
 
-restaurantes = ["Laçador", "Pedra Chata"]
+# restaurantes = ["Laçador", "Pedra Chata"]
+restaurantes = [
+    {"nome": "Laçador", "categoria": "Churrascaria", "ativo": True},
+    {"nome": "Pedra Chata", "categoria": "Buffet", "ativo": True},
+    {"nome": "Veneza", "categoria": "Comida Italiana", "ativo": False}]
+
+
+def chama_nome_app():
+    print("🅁🄴🅂🅃🄰🅄🅁🄰🄽🅃🄴 🄴🅇🄿🅁🄴🅂🅂🄾. \n")
 
 
 def mostrar_subtitulo(t):
@@ -27,10 +35,6 @@ def opcao_invalida():
     voltar_menu_principal()
 
 
-def chama_nome_app():
-    print("Programa Expresso")
-
-
 def exibir_opcoes():
     print("1 - Cadastrar restaurante")
     print("2 - Listar restaurante")
@@ -52,7 +56,9 @@ def listar_restaurantes():
     os.system("cls")
     mostrar_subtitulo("Listando os restaurantes")
     for restaurante in restaurantes:
-        print(f"- {restaurante}")
+        nome_restaurante = restaurante["nome"]
+        categ_restaurante = restaurante["categoria"]
+        print(f"- {nome_restaurante} | {categ_restaurante}")
     voltar_menu_principal()
 # Escolha das opções:
 
