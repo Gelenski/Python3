@@ -3,7 +3,7 @@ import os
 # Variáveis globais do projeto:
 
 
-# restaurantes = ["Laçador", "Pedra Chata"]
+# //restaurantes = ["Laçador", "Pedra Chata"]
 restaurantes = [
     {"nome": "Laçador", "categoria": "Churrascaria", "ativo": True},
     {"nome": "Pedra Chata", "categoria": "Buffet", "ativo": True},
@@ -26,7 +26,7 @@ def sair():
 
 
 def voltar_menu_principal():
-    input("\nDigite qualquer tecla para retornar ao menu principal: ")
+    input("\n Pressione a tecla Enter para retornar ao menu principal: ")
     main()
 
 
@@ -41,10 +41,10 @@ def exibir_opcoes():
     print("3 - Ativar restaurante")
     print("4 - Sair\n")
 
+
 # Funcionalidades das opções:
 
-
-def cadastrar_novo_restaurante():
+def cadastrar_novo_restaurantes():
     os.system("cls")
     nome_do_restaurante = input("Digite o nome do seu novo restaurante: \n")
     categoria = input(f"Digite a categoria do restaurante {
@@ -65,8 +65,27 @@ def listar_restaurantes():
         ativo = restaurante["ativo"]
         print(f"- {nome_restaurante} | {categoria_restaurante} | {ativo}")
     voltar_menu_principal()
-# Escolha das opções:
 
+
+def alterar_estado_restaurantes():
+    mostrar_subtitulo("Alterando o estado do restaurante")
+    nome_restaurante = input(
+        "Digite o nome do restaurante que deseja alterar o estado: \n")
+    restaurante_encontrado = False
+    for restaurante in restaurantes:
+        if nome_restaurante == restaurante["nome"]:
+            restaurante_encontrado = True
+            restaurante["ativo"] = not restaurante["ativo"]
+            mensagem = f"O restaurante {nome_restaurante} foi ativado com sucesso! " if restaurante["ativo"] else f"O restaurante {
+                nome_restaurante} foi desativado com sucesso!"
+            print(mensagem)
+        if not restaurante_encontrado:
+            print(f"O restaurante não foi encontrado.")
+
+    voltar_menu_principal()
+
+
+# Escolha das opções:
 
 def escolha_opcoes():
     try:
@@ -74,11 +93,12 @@ def escolha_opcoes():
         print("\nVocê escolheu a opção:", opcao_digitada)
         match opcao_digitada:
             case 1:
-                cadastrar_novo_restaurante()
+                cadastrar_novo_restaurantes()
             case 2:
                 listar_restaurantes()
             case 3:
-                print("Você escolheu ativar seu restaurante.")
+                # //print("Você escolheu ativar seu restaurante.")
+                alterar_estado_restaurantes()
             case 4:
                 sair()
             case _:
