@@ -47,8 +47,12 @@ def exibir_opcoes():
 def cadastrar_novo_restaurante():
     os.system("cls")
     nome_do_restaurante = input("Digite o nome do seu novo restaurante: \n")
-    restaurantes.append(nome_do_restaurante)
-    print(f"O restaurante: {nome_do_restaurante} foi cadastrado com sucesso!")
+    categoria = input(f"Digite a categoria do restaurante {
+                      nome_do_restaurante}: \n")
+    dados_restaurante = {"nome": nome_do_restaurante,
+                         "categoria": categoria, "ativo": False}
+    restaurantes.append(dados_restaurante)
+    print(f"O restaurante {nome_do_restaurante} foi cadastrado com sucesso!")
     voltar_menu_principal()
 
 
@@ -57,8 +61,9 @@ def listar_restaurantes():
     mostrar_subtitulo("Listando os restaurantes")
     for restaurante in restaurantes:
         nome_restaurante = restaurante["nome"]
-        categ_restaurante = restaurante["categoria"]
-        print(f"- {nome_restaurante} | {categ_restaurante}")
+        categoria_restaurante = restaurante["categoria"]
+        ativo = restaurante["ativo"]
+        print(f"- {nome_restaurante} | {categoria_restaurante} | {ativo}")
     voltar_menu_principal()
 # Escolha das opções:
 
