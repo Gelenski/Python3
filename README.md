@@ -1,4 +1,4 @@
-# Python2
+# Python3
 
 Criação de uma aplicação que realiza as seguintes funções baseadas em restaurantes:
 
