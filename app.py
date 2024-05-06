@@ -16,13 +16,16 @@ def chama_nome_app():
 
 def mostrar_subtitulo(t):
     os.system("cls")
+    linha = "*" * (len(t))
+    print(linha)
     print(t)
+    print(linha)
     print()
 
 
 def sair():
     os.system("cls")
-    mostrar_subtitulo("Finalizando aplicação.\n")
+    mostrar_subtitulo("Finalizando aplicação.")
 
 
 def voltar_menu_principal():
@@ -59,11 +62,14 @@ def cadastrar_novo_restaurantes():
 def listar_restaurantes():
     os.system("cls")
     mostrar_subtitulo("Listando os restaurantes")
+    print(f"{'*Nome do Restaurante*'.ljust(22)
+             } | {'*Categoria*'.ljust(22)} | {'*Status*'.ljust(20)}")
     for restaurante in restaurantes:
         nome_restaurante = restaurante["nome"]
         categoria_restaurante = restaurante["categoria"]
-        ativo = restaurante["ativo"]
-        print(f"- {nome_restaurante} | {categoria_restaurante} | {ativo}")
+        ativo = "Ativado" if restaurante["ativo"] else "Desativado"
+        print(f"- {nome_restaurante.ljust(20)
+                   } | {categoria_restaurante.ljust(22)} | {ativo}")
     voltar_menu_principal()
 
 
@@ -91,18 +97,30 @@ def escolha_opcoes():
     try:
         opcao_digitada = int(input("Selecione uma opção:\n"))
         print("\nVocê escolheu a opção:", opcao_digitada)
-        match opcao_digitada:
-            case 1:
-                cadastrar_novo_restaurantes()
-            case 2:
-                listar_restaurantes()
-            case 3:
-                # //print("Você escolheu ativar seu restaurante.")
-                alterar_estado_restaurantes()
-            case 4:
-                sair()
-            case _:
-                opcao_invalida()
+    #     match opcao_digitada:
+    #         case 1:
+    #             cadastrar_novo_restaurantes()
+    #         case 2:
+    #             listar_restaurantes()
+    #         case 3:
+    #             # //print("Você escolheu ativar seu restaurante.")
+    #             alterar_estado_restaurantes()
+    #         case 4:
+    #             sair()
+    #         case _:
+    #             opcao_invalida()
+    # except:
+    #     opcao_invalida()
+        if opcao_digitada == 1:
+            cadastrar_novo_restaurantes()
+        elif opcao_digitada == 2:
+            listar_restaurantes()
+        elif opcao_digitada == 3:
+            alterar_estado_restaurantes()
+        elif opcao_digitada == 4:
+            sair()
+        else:
+            opcao_invalida()
     except:
         opcao_invalida()
 
